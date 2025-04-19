@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3F71D63F2DB3D89700AF86AB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F71D63E2DB3D89700AF86AB /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3F90F80D2DB39E6F0060E00F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F71D63E2DB3D89700AF86AB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3F90F7FF2DB39E6C0060E00F /* JustNotNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustNotNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F90F80C2DB39E6F0060E00F /* JustNotNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustNotNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F90F8162DB39E700060E00F /* JustNotNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustNotNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		3F90F7F62DB39E6C0060E00F = {
 			isa = PBXGroup;
 			children = (
+				3F71D63E2DB3D89700AF86AB /* README.md */,
 				3F90F8012DB39E6C0060E00F /* JustNotNow */,
 				3F90F80F2DB39E6F0060E00F /* JustNotNowTests */,
 				3F90F8192DB39E700060E00F /* JustNotNowUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F71D63F2DB3D89700AF86AB /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
