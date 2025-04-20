@@ -32,6 +32,15 @@ class ToDoRepository {
     func sortedByPriority() -> [ToDoItem] {
         return items.sorted { $0.priority > $1.priority }
     }
+    
+    func filteredItems(matching filter: String) -> [ToDoItem] {
+        guard !filter.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return items.sorted { $0.priority > $1.priority }
+        }
+        
+        let filtered = items.filter { $0.matchesFilter(filter) }
+        return filtered.sorted { $0.priority > $1.priority }
+    }
 
     func add(_ item: ToDoItem) {
         items.append(item)

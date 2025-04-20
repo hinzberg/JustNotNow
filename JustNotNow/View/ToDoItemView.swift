@@ -9,6 +9,14 @@ struct ToDoItemView: View {
 
     var body: some View {
         HStack {
+            
+            // MARK: Colored rectangle based on priority
+            Rectangle()
+                .fill(priorityColor(for: item.priority))
+                .frame(width: 15)
+                .cornerRadius(5)
+                .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
+            
             if let imageName = item.imageName {
                 Image(systemName: imageName)
                     .foregroundColor(item.isCompleted ? .green : .blue)
@@ -32,6 +40,25 @@ struct ToDoItemView: View {
                         .foregroundColor(item.isCompleted ? .green : .primary)
                 }
             }
+            Spacer()
+            
+        }
+        .frame(maxWidth: .infinity)  // Ensure the HStack takes up the full width
+        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 0))
+    }
+    
+    // Helper function to return the color based on priority
+    private func priorityColor(for priority: Int) -> Color {
+        switch priority {
+        case 3:
+            return .red  // Red for priority 3
+        case 2:
+            return .yellow  // Yellow for priority 2
+        case 1:
+            return .green  // Green for priority 1
+        default:
+            return .gray  // Default color if priority is undefined
         }
     }
+    
 }

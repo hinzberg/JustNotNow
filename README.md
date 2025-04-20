@@ -8,5 +8,8 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## History
 
+### 2025-04-20
+- Added filtering
+
 ### 2025-04-19
 - Initial commit with boilerplate code. Add and delete sample data.

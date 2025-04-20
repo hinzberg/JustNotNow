@@ -5,7 +5,9 @@
 import SwiftUI
 
 struct ToDoListView: View {
+    
     @State private var repository = ToDoRepository()
+    @State private var searchText = ""
     
     var body: some View {
         
@@ -15,8 +17,10 @@ struct ToDoListView: View {
                 
                 // MARK: List of Items
                 List {
-                    ForEach(repository.sortedByPriority(), id: \.id) { item in
+                    ForEach(repository.filteredItems(matching: searchText, ), id: \.id) { item in
                         ToDoItemView(item: item)
+                            .frame(maxWidth: .infinity)
+                            .listRowInsets(EdgeInsets())
                             .swipeActions(edge: .leading, allowsFullSwipe: true) {
                                 Button {
                                     repository.toggleCompletion(item)
@@ -26,13 +30,15 @@ struct ToDoListView: View {
                                 }
                                 .tint(item.isCompleted ? .orange : .green)
                             }
+                            .frame( maxWidth: .infinity)
                     }
                     .onDelete(perform: deleteItems)
                 }
                 .listStyle(PlainListStyle())
+                .searchable(text: $searchText)
                 .navigationTitle("Just Not Now")
                 .navigationBarTitleDisplayMode(.inline)
-                
+                                
                 // MARK: Navigation Bar Buttons
                 .navigationBarItems(trailing:
                                 Button(action: {
