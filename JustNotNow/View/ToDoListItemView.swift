@@ -4,9 +4,11 @@
 
 import SwiftUI
 
-struct ToDoItemView: View {
+struct ToDoListItemView: View {
+    
+    @Environment(ToDoRepository.self) var repository
     let item: ToDoItem
-
+    
     var body: some View {
         HStack {
             
@@ -23,18 +25,18 @@ struct ToDoItemView: View {
                     .font(.system(size: 25))
                     .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
             }
-
+            
             VStack(alignment: .leading) {
                 Text(item.itemDescription)
                     .font(.headline)
                     .strikethrough(item.isCompleted)
                     .foregroundColor(item.isCompleted ? .green : .primary)
-
+                
                 Text("Priority: \(item.priority)")
                     .font(.subheadline)
                     .strikethrough(item.isCompleted)
                     .foregroundColor(item.isCompleted ? .green : .primary)
-
+                
                 if let date = item.reminderDate {
                     Text("Reminds: \(date.formatted(date: .abbreviated, time: .shortened))")
                         .font(.caption)
@@ -43,10 +45,22 @@ struct ToDoItemView: View {
                 }
             }
             Spacer()
-            
         }
         .frame(maxWidth: .infinity)  // Ensure the HStack takes up the full width
-        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 0))
+        .padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
+        .listRowInsets(EdgeInsets())
+        .frame( maxWidth: .infinity)
+        
+        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+            Button {
+                repository.toggleCompletion(item)
+            } label: {
+                Label(item.isCompleted ? "Uncomplete" : "Complete",
+                      systemImage: item.isCompleted ? "arrow.uturn.backward.circle" : "checkmark.circle")
+            }
+            .tint(item.isCompleted ? .orange : .green)
+        }
+        
     }
     
     // Helper function to return the color based on priority

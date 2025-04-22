@@ -20,3 +20,10 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## ToDo
 
+- Remove last line in ListView
+- Rectangle more left
+- Edit
+- Sheet for Icons
+- App Icon
+- NotificationCenter reminder
+

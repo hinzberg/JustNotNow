@@ -13,53 +13,45 @@ struct ToDoListView: View {
     var body: some View {
         
         VStack {
-            NavigationView {
+            NavigationStack {
                 
                 // MARK: List of Items
+                let filteredItems = repository.filteredItems(matching: searchText)
                 List {
-                    ForEach(repository.filteredItems(matching: searchText, ), id: \.id) { item in
-                        ToDoItemView(item: item)
-                            .frame(maxWidth: .infinity)
-                            .listRowInsets(EdgeInsets())
-                            .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                                Button {
-                                    repository.toggleCompletion(item)
-                                } label: {
-                                    Label(item.isCompleted ? "Uncomplete" : "Complete",
-                                          systemImage: item.isCompleted ? "arrow.uturn.backward.circle" : "checkmark.circle")
-                                }
-                                .tint(item.isCompleted ? .orange : .green)
-                            }
-                            .frame( maxWidth: .infinity)
+                    ForEach(filteredItems , id: \.id) { item in
+                        NavigationLink {
+                            EditToDoView(item: item)
+                        } label: {
+                            ToDoListItemView(item: item)
+                        }
+                        .listRowSeparator(item == filteredItems.last ? .hidden : .visible)
                     }
                     .onDelete(perform: deleteItems)
-                    
-                    NavigationLink(
-                        destination: AddToDoItemView(),
-                        isActive: $isNavigatingToAddForm
-                    ) {
-                        EmptyView()
-                    }
-                    .hidden() // Keep it invisible until triggered
-                    
-                    
                 }
-                .listStyle(PlainListStyle())
-                .searchable(text: $searchText)
+                .listStyle(.plain)
+                
+                .searchable(
+                    text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Search ...")
+                
                 .navigationTitle("Just Not Now")
                 .navigationBarTitleDisplayMode(.inline)
                 
                 // MARK: Navigation Bar Buttons
                 .navigationBarItems(trailing:
                                         Button(action: {
-                    // repository.addSampleItem()
                     isNavigatingToAddForm = true
                 }) {
-                    Image(systemName: "plus.app")
-                        .foregroundColor(.blue)
-                        .font(.title)
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(.cloudDancer)
                 }
                 )
+                
+                .navigationDestination(isPresented: $isNavigatingToAddForm) {
+                    AddToDoItemView()
+                }
+                                
                 Spacer()
             }
         }
@@ -68,11 +60,8 @@ struct ToDoListView: View {
     
     private func deleteItems(at offsets: IndexSet) {
         for index in offsets {
-            let item = repository.items[index]
+            let item = repository.filteredItems(matching: searchText)[index]
             repository.delete(item)
         }
     }
-    
-    
-    
 }
