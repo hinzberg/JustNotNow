@@ -14,32 +14,29 @@ struct ToDoListItemView: View {
             
             // MARK: Colored rectangle based on priority
             Rectangle()
-                .fill(priorityColor(for: item.priority))
+                .fill(priorityColor(for: item))
                 .frame(width: 15)
                 .cornerRadius(5)
                 .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
             
             Image(systemName: item.imageName)
-                .foregroundColor(item.isCompleted ? .green : .primary)
+                .foregroundColor(item.isCompleted ? .secondary : .primary)
                 .font(.system(size: 25))
                 .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
             
             VStack(alignment: .leading) {
                 Text(item.itemDescription)
                     .font(.headline)
-                    .strikethrough(item.isCompleted)
-                    .foregroundColor(item.isCompleted ? .green : .primary)
+                    .foregroundColor(item.isCompleted ? .secondary : .primary)
                 
                 Text("Priority: \(item.priority)")
                     .font(.subheadline)
-                    .strikethrough(item.isCompleted)
-                    .foregroundColor(item.isCompleted ? .green : .primary)
+                    .foregroundColor(item.isCompleted ? .secondary : .primary)
                 
                 if let date = item.reminderDate {
                     Text("Reminds: \(date.formatted(date: .abbreviated, time: .shortened))")
                         .font(.caption)
-                        .strikethrough(item.isCompleted)
-                        .foregroundColor(item.isCompleted ? .green : .primary)
+                        .foregroundColor(item.isCompleted ? .secondary : .primary)
                 }
             }
             Spacer()
@@ -62,8 +59,13 @@ struct ToDoListItemView: View {
     }
     
     // Helper function to return the color based on priority
-    private func priorityColor(for priority: Int) -> Color {
-        switch priority {
+    private func priorityColor(for item: ToDoItem) -> Color {
+        
+        if  item.isCompleted == true {
+            return Color.secondary
+        }
+                
+        switch item.priority {
         case 3:
             return .red  // Red for priority 3
         case 2:

@@ -9,6 +9,7 @@ It's a good opportunity to practise your skills and try out new technologies.
 ## History
 
 ### 2025-05-01
+- Added gray color for completed items in the ToDoItemView
 - Added a section for symbols in the AddToDoItemView
 - Added a sheet to select different symbols
 
