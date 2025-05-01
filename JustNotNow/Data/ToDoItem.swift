@@ -8,7 +8,7 @@ struct ToDoItem: Identifiable, Hashable {
     let id = UUID()
     var itemDescription: String
     var note: String = ""
-    var imageName: String? = "book"
+    var imageName: String = "star"
     var priority: Int
     var reminderDate: Date?
     var isCompleted: Bool = false

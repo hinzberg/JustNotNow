@@ -8,6 +8,10 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## History
 
+### 2025-05-01
+- Added a section for symbols in the AddToDoItemView
+- Added a sheet to select different symbols
+
 ### 2025-04-21
 - Bigger Icons for List entries
 - New Form for adding new ToDo
@@ -23,7 +27,6 @@ It's a good opportunity to practise your skills and try out new technologies.
 - Remove last line in ListView
 - Rectangle more left
 - Edit
-- Sheet for Icons
 - App Icon
 - NotificationCenter reminder
 

@@ -12,7 +12,6 @@ struct TaskInfoSection: View {
         Section(header: Text("Task Info")) {
             TextField("Description", text: $item.itemDescription)
             TextField("Note", text: $item.note)
-            TextField("System Image Name", text: Binding($item.imageName, replacingNilWith: ""))
         }
     }
 }

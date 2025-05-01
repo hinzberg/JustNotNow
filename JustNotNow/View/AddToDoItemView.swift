@@ -12,7 +12,6 @@ struct AddToDoItemView: View {
     @State private var item = ToDoItem(
         itemDescription: "test",
         note: "note",
-        imageName: "inset.filled.circle.dashed",
         priority: 1,
         reminderDate: nil,
         isCompleted: false
@@ -23,6 +22,7 @@ struct AddToDoItemView: View {
         Form {
             
             TaskInfoSection(item: $item)
+            SymbolSection(item: $item)
             PrioritySection(item: $item)
             ReminderSection(item: $item)
             

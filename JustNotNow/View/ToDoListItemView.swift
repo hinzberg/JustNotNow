@@ -19,12 +19,10 @@ struct ToDoListItemView: View {
                 .cornerRadius(5)
                 .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
             
-            if let imageName = item.imageName {
-                Image(systemName: imageName)
-                    .foregroundColor(item.isCompleted ? .green : .primary)
-                    .font(.system(size: 25))
-                    .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
-            }
+            Image(systemName: item.imageName)
+                .foregroundColor(item.isCompleted ? .green : .primary)
+                .font(.system(size: 25))
+                .padding(EdgeInsets(top: 0, leading: 0 , bottom: 0, trailing: 10))
             
             VStack(alignment: .leading) {
                 Text(item.itemDescription)

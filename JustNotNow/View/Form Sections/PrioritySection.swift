@@ -12,7 +12,7 @@ struct PrioritySection: View {
         
         Section(header: Text("Priority")) {
             Picker("Priority", selection: $item.priority) {
-                Text("Higth").tag(3)
+                Text("High").tag(3)
                     .foregroundColor(.red)
                 Text("Medium").tag(2)
                     .foregroundColor(.yellow)
