@@ -1,0 +1,40 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.76975,0.85122,0.97243,1.00000",
+      "display-p3:0.35672,0.37356,0.74364,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "glass" : false,
+          "image-name" : "2025-09-29 JustNotNow.png",
+          "name" : "2025-09-29 JustNotNow",
+          "position" : {
+            "scale" : 1.2,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

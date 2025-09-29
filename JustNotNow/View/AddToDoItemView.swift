@@ -20,26 +20,33 @@ struct AddToDoItemView: View {
     var body: some View {
         
         Form {
-            
             TaskInfoSection(item: $item)
             SymbolSection(item: $item)
             PrioritySection(item: $item)
             ReminderSection(item: $item)
-            
-            Section {
-                Button("Cancel", role: .destructive) {
-                    dismiss()
-                }
-            }
-            
-            Section{
-                Button("Save", role: .none) {
-                    repository.add(item)
-                    dismiss()
-                }
-            }
         }
         .navigationTitle("New To-Do")
+        
+        HStack {
+            Button() {
+                dismiss()
+            } label: {
+                Text("Cancel")
+                    .frame(width: 150)
+            }
+            .buttonStyle(.glass)
+            .tint(.red)
+            
+            Button() {
+                repository.add(item)
+                dismiss()
+            } label: {
+                Text("Save")
+                    .frame(width: 150)
+            }
+            .buttonStyle(.glass)
+            .tint(.green)
+        }
     }
 }
 

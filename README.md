@@ -8,6 +8,10 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## History
 
+#### 2025-09-29
+- Added App Icon
+- Changed Canel + Save Button to Liquid Glass
+
 ### 2025-05-01
 - Added gray color for completed items in the ToDoItemView
 - Added a section for symbols in the AddToDoItemView
@@ -25,9 +29,12 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## ToDo
 
+- ToDoRepository in App Root
 - Remove last line in ListView
 - Rectangle more left
 - Edit
-- App Icon
+- Badge Items Count
 - NotificationCenter reminder
-
+- Status Bar white
+- Symbol Picker center and full row clickable
+- Search at Buttom and glass

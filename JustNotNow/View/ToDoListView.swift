@@ -40,18 +40,18 @@ struct ToDoListView: View {
                 
                 // MARK: Navigation Bar Buttons
                 .navigationBarItems(trailing:
-                                        Button(action: {
+                    Button(action: {
                     isNavigatingToAddForm = true
-                }) {
+                    }) {
                     Image(systemName: "plus.circle")
-                        .foregroundColor(.cloudDancer)
-                }
+                        .foregroundColor(.black)
+                    }
                 )
                 
                 .navigationDestination(isPresented: $isNavigatingToAddForm) {
                     AddToDoItemView()
                 }
-                                
+                
                 Spacer()
             }
         }
