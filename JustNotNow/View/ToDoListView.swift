@@ -29,31 +29,37 @@ struct ToDoListView: View {
                     .onDelete(perform: deleteItems)
                 }
                 .listStyle(.plain)
-                
-                .searchable(
-                    text: $searchText,
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "Search ...")
-                
                 .navigationTitle("Just Not Now")
                 .navigationBarTitleDisplayMode(.inline)
                 
-                // MARK: Navigation Bar Buttons
-                .navigationBarItems(trailing:
-                    Button(action: {
-                    isNavigatingToAddForm = true
-                    }) {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.black)
+                // MARK: NavigationBar Toolbar
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Menu {
+                            Button("Item 1", action: {})
+                            Button("Item 2", action: {})
+                            Button("Item 3", action: {})
+                        } label: {
+                            Label("Menu", systemImage: "ellipsis")
+                                .labelStyle(.iconOnly)
+                        }
                     }
-                )
-                
+                    ToolbarItem(placement: .primaryAction) {
+                        Button("Add New", systemImage: "plus") {
+                            isNavigatingToAddForm = true
+                        }
+                        .labelStyle(.iconOnly)
+                    }
+                }
                 .navigationDestination(isPresented: $isNavigatingToAddForm) {
                     AddToDoItemView()
                 }
-                
                 Spacer()
             }
+            .searchable(
+                text: $searchText,
+                placement: .automatic,
+                prompt: "Search ...")
         }
         .environment(repository) // Put the Repo in the enviroment for all subviews to use
     }
@@ -65,3 +71,4 @@ struct ToDoListView: View {
         }
     }
 }
+
