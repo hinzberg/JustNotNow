@@ -21,8 +21,8 @@ struct AddToDoItemView: View {
         
         Form {
             TaskInfoSection(item: $item)
-            SymbolSection(item: $item)
             PrioritySection(item: $item)
+            SymbolSection(item: $item)
             ReminderSection(item: $item)
         }
         .navigationTitle("New To-Do")

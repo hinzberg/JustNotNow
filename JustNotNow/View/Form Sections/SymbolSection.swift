@@ -11,22 +11,28 @@ struct SymbolSection: View {
     
     var body: some View {
         Section(header: Text("Symbol")) {
-            Image(systemName: item.imageName )
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32)
-                .padding(8)
-                .onTapGesture {
-                    showingSymbolPicker = true
-                }
-                .sheet(isPresented: $showingSymbolPicker) {
-                    SymbolPickerView(selectedSymbol: Binding(
-                        get: { item.imageName },
-                        set: { item.imageName = $0 }
-                    ))
-                    .presentationDetents([.medium])
-                    .presentationDragIndicator(.visible)
-                }
+            HStack {
+                Spacer()
+                Image(systemName: item.imageName )
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 32, height: 32)
+                    .padding(8)
+                Spacer()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                showingSymbolPicker = true
+            }
+            // Sheet
+            .sheet(isPresented: $showingSymbolPicker) {
+                SymbolPickerView(selectedSymbol: Binding(
+                    get: { item.imageName },
+                    set: { item.imageName = $0 }
+                ))
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+            }
         }
     }
 }

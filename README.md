@@ -8,6 +8,10 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## History
 
+#### 2025-10-02
+- Symbol in form now centered
+- Statusbar content is now white 
+
 #### 2025-09-29
 - Added App Icon
 - Changed Canel + Save Button to Liquid Glass
@@ -35,6 +39,4 @@ It's a good opportunity to practise your skills and try out new technologies.
 - Edit
 - Badge Items Count
 - NotificationCenter reminder
-- Status Bar white
-- Symbol Picker center and full row clickable
 - Search at Buttom and glass
