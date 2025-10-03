@@ -50,22 +50,10 @@ struct ToDoListView: View {
             
             // MARK: NavigationBar Toolbar
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Menu {
-                        Button("Delete all items", action: { repository.clear()  })
-                        Button("Item 1", action: {})
-                        Button("Item 2", action: {})
-                    } label: {
-                        Label("Menu", systemImage: "ellipsis")
-                            .labelStyle(.iconOnly)
-                    }
-                }
-                ToolbarItem(placement: .primaryAction) {
-                    Button("Add New", systemImage: "plus") {
-                        isNavigatingToAddForm = true
-                    }
-                    .labelStyle(.iconOnly)
-                }
+                MainToolbar(
+                    onAdd: { isNavigatingToAddForm = true },
+                    onDeleteAll: { repository.clear() }
+                )
             }
             Spacer()
         }

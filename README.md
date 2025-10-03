@@ -14,6 +14,7 @@ It's a good opportunity to practise your skills and try out new technologies.
 - Changed NavigationBar Buttons to Toolbar
 - Moved ToDoRepository to App Root
 - Items count as app icon badge
+- Refactor MainToolbar
 
 #### 2025-09-29
 - Added App Icon
