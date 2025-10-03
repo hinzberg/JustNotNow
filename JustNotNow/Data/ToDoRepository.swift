@@ -54,6 +54,11 @@ class ToDoRepository {
         badgeManager.setBadgeNumber(toDoItems.count)
     }
     
+    func clear() {
+        toDoItems.removeAll(keepingCapacity: false)
+        badgeManager.setBadgeNumber(toDoItems.count)
+    }
+    
     func delete(_ item: ToDoItem) {
         toDoItems.removeAll { $0.id == item.id }
         badgeManager.setBadgeNumber(toDoItems.count)
