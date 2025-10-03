@@ -4,20 +4,26 @@
 
 import Foundation
 import Observation
+import UserNotifications
 
 @Observable
 class ToDoRepository {
     
+    private let badgeManager = ApptBadgeManager()
+    private let notificationCenter = UNUserNotificationCenter.current()
     private var toDoItems: [ToDoItem] = []
     
     init() {
+        
         toDoItems = [
             ToDoItem(itemDescription: "Buy groceries", imageName: "cart", priority: 2, reminderDate: Date().addingTimeInterval(3600)),
             ToDoItem(itemDescription: "Walk the dog", imageName: "pawprint", priority: 1, reminderDate: nil),
             ToDoItem(itemDescription: "Finish SwiftUI project", imageName: "laptopcomputer", priority: 3, reminderDate: Date().addingTimeInterval(86400)),
             ToDoItem(itemDescription: "Call Mom", imageName: "phone", priority: 2, reminderDate: Date().addingTimeInterval(7200)),
-            ToDoItem(itemDescription: "Read a book", imageName: "book", priority: 1, reminderDate: nil)
+            ToDoItem(itemDescription: "Read a book", imageName: "book", priority: 1, reminderDate: nil),
         ]
+        
+        badgeManager.setBadgeNumber(toDoItems.count)
     }
     
     func addSampleItem() {
@@ -42,13 +48,15 @@ class ToDoRepository {
         let filtered = toDoItems.filter { $0.matchesFilter(filter) }
         return filtered.sorted { $0.priority > $1.priority }
     }
-
+    
     func add(_ item: ToDoItem) {
         toDoItems.append(item)
+        badgeManager.setBadgeNumber(toDoItems.count)
     }
-
+    
     func delete(_ item: ToDoItem) {
         toDoItems.removeAll { $0.id == item.id }
+        badgeManager.setBadgeNumber(toDoItems.count)
     }
     
     func toggleCompletion(_ item: ToDoItem) {

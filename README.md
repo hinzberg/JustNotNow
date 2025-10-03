@@ -11,9 +11,9 @@ It's a good opportunity to practise your skills and try out new technologies.
 #### 2025-10-02
 - Symbol in form now centered
 - Statusbar content is now white 
-- Searchbox now at the bottom
 - Changed NavigationBar Buttons to Toolbar
 - Moved ToDoRepository to App Root
+- Items count as app icon badge
 
 #### 2025-09-29
 - Added App Icon
@@ -38,6 +38,5 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 - Remove last line in ListView
 - Edit
-- Badge Items Count
 - NotificationCenter reminder
 

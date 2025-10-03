@@ -4,17 +4,21 @@
 
 import SwiftUI
 
+enum Tabs {
+    case toDoList
+    case settings
+}
+
 struct ToDoListView: View {
     
     @Environment(ToDoRepository.self) private var repository
     @State private var searchText = ""
     @State private var isNavigatingToAddForm = false
+    @State private var selectedTab : Tabs = .toDoList
     
     var body: some View {
-        
-        VStack {
+
             NavigationStack {
-                
                 // MARK: List of Items
                 let filteredItems = repository.filteredItems(matching: searchText)
                 List {
@@ -58,10 +62,8 @@ struct ToDoListView: View {
             }
             .searchable(
                 text: $searchText,
-                placement: .automatic,
+                placement: .automatic ,
                 prompt: "Search ...")
-        }
-        .environment(repository) // Put the Repo in the enviroment for all subviews to use
     }
     
     private func deleteItems(at offsets: IndexSet) {

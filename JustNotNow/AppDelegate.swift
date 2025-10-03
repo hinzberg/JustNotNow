@@ -19,7 +19,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        
+
         UITableViewHeaderFooterView.appearance().tintColor = UIColor.clear
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = cloudDancerColor
         UITabBar.appearance().backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 1.0, alpha: 1)
