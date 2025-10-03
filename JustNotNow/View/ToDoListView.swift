@@ -6,7 +6,7 @@ import SwiftUI
 
 struct ToDoListView: View {
     
-    @State private var repository = ToDoRepository()
+    @Environment(ToDoRepository.self) private var repository
     @State private var searchText = ""
     @State private var isNavigatingToAddForm = false
     

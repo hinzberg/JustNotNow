@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct JustNotNowApp: App {
     
+    var repository = ToDoRepository()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
             ToDoListView()
+                .environment(repository)
         }
     }
 }

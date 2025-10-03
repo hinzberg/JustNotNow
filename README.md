@@ -13,6 +13,7 @@ It's a good opportunity to practise your skills and try out new technologies.
 - Statusbar content is now white 
 - Searchbox now at the bottom
 - Changed NavigationBar Buttons to Toolbar
+- Moved ToDoRepository to App Root
 
 #### 2025-09-29
 - Added App Icon
@@ -35,10 +36,8 @@ It's a good opportunity to practise your skills and try out new technologies.
 
 ## ToDo
 
-- ToDoRepository in App Root
 - Remove last line in ListView
-- Rectangle more left
 - Edit
 - Badge Items Count
 - NotificationCenter reminder
-- Search at Buttom and glass
+
